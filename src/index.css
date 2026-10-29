@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Tajawal', 'Cairo', system-ui, -apple-system, sans-serif;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Teleprompter Modes */
+.prompter-mirror {
+  transform: scaleX(-1);
+}
+
+.prompter-mirror-vertical {
+  transform: scaleY(-1);
+}
+
+.prompter-mirror-both {
+  transform: scale(-1, -1);
+}
+
+/* Smooth Focus Glow */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 transition-all;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Subtle glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Outro alert pulsing */
+@keyframes outro-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px 8px rgba(239, 68, 68, 0.35);
+  }
+}
+
+.outro-active {
+  animation: outro-glow 2s infinite ease-in-out;
+  border-color: #ef4444 !important;
+}
